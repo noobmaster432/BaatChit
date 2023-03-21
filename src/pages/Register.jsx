@@ -54,12 +54,16 @@ const Register = () => {
     }
   };
 
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSubmit();
+  };
+
   return (
     <div className="formContainer">
       <div className="formWrapper">
         <span className="logo">BaatChit</span>
         <span className="title">Register</span>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} onKeyDown={handleKey}>
           <input type="text" placeholder="display name" />
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
@@ -69,7 +73,11 @@ const Register = () => {
             <span>Add an avatar</span>
           </label>
           <button>Sign Up</button>
-          {err && <span style={{color: "red", fontSize: "12px"}}>Something went Wrong!</span>}
+          {err && (
+            <span style={{ color: "red", fontSize: "12px" }}>
+              Something went Wrong!
+            </span>
+          )}
         </form>
         <p>
           You do have an account?

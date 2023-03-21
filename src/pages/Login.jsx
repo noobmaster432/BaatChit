@@ -20,12 +20,16 @@ const Login = () => {
     }
   };
 
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSubmit();
+  };
+
   return (
     <div className="formContainer">
       <div className="formWrapper">
         <span className="logo">BaatChit</span>
         <span className="title">Login</span>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} onKeyDown={handleKey}>
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
           <button>Sign In</button>
